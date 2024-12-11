@@ -1,12 +1,57 @@
+<?php
+// Simple PHP script to display a table
+
+// Sample data for the table
+$data = [
+    ['ID' => 1, 'Name' => 'Alice', 'Age' => 25],
+    ['ID' => 2, 'Name' => 'Bob', 'Age' => 30],
+    ['ID' => 3, 'Name' => 'Charlie', 'Age' => 35],
+];
+?>
+
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Result</title>
-	</head>
-	<body><h1>YEAH SANDWICHES</h1>
-	<img src="http://bit.ly/RhrMEn" />
-		<p>I like eggs.</p>
-		<p>And ham!</p>
-		<p>But mostly sandwiches.</p>
-	</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Table</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Simple PHP Table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($data as $row): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($row['ID']); ?></td>
+                    <td><?php echo htmlspecialchars($row['Name']); ?></td>
+                    <td><?php echo htmlspecialchars($row['Age']); ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</body>
 </html>
